@@ -1,10 +1,10 @@
-package talendant.genschema
+package metadrift.genschema
 
 import scala.collection.JavaConverters._
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.github.fge.jsonschema.core.report.ProcessingMessage
 import com.github.fge.jsonschema.main.JsonSchemaFactory
 import io.circe.{Json, Printer}
-import com.fasterxml.jackson.databind.ObjectMapper
 
 object TestSupport {
   val printer = Printer.spaces2.copy(dropNullKeys = true)

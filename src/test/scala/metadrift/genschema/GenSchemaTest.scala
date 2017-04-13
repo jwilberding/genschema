@@ -13,16 +13,16 @@
   *  See the License for the specific language governing permissions and
   *  limitations under the License.
   */
-package talendant.genschema
+package metadrift.genschema
 
 import java.util.UUID
 
 import io.circe.generic.semiauto
 import io.circe.syntax._
 import org.scalatest.FunSuite
-import talendant.genschema
-import talendant.genschema.EncoderImplicits._
-import talendant.genschema.GenSchema.createSchema
+import metadrift.genschema
+import metadrift.genschema.EncoderImplicits._
+import GenSchema.createSchema
 
 case class TypeOne(param1: Int)
 case class TypeTwo(param1: Int, param2: Long)

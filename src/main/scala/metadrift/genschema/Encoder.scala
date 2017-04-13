@@ -1,4 +1,4 @@
-package talendant.genschema
+package metadrift.genschema
 
 import java.util.{Date, UUID}
 

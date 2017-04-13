@@ -13,16 +13,16 @@
   *  See the License for the specific language governing permissions and
   *  limitations under the License.
   */
-package talendant.genschema
+package metadrift.genschema
 
-import io.circe.{Json, JsonObject}
+import scala.reflect.runtime.universe.TypeTag
 import io.circe.syntax._
+import io.circe.{Json, JsonObject}
 import cats.instances.list.catsStdInstancesForList
-
-import reflect.runtime.universe.TypeTag
 
 /**
   * GenSchema lets you take any Scala type and create JSON Schema out of it
+  *
   * @example
   * {{{
   *      // Pass the type as a type parameter
