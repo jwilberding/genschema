@@ -1,6 +1,6 @@
 name := "genschema"
 
-organization := "talendant"
+organization := "metadrift"
 
 scalaVersion := "2.12.1"
 
@@ -59,7 +59,7 @@ pomIncludeRepository := { _ =>
   false
 }
 
-pomExtra := <url>https://github.com/talendant/genschema</url>
+pomExtra := <url>https://github.com/metadrift/genschema</url>
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
@@ -68,8 +68,8 @@ pomExtra := <url>https://github.com/talendant/genschema</url>
     </license>
   </licenses>
   <scm>
-    <url>git@github.com:talendant/genschema.git</url>
-    <connection>scm:git:git@github.com:talendant/autoschema.git</connection>
+    <url>git@github.com:metadrift/genschema.git</url>
+    <connection>scm:git:git@github.com:metadrift/genschema.git</connection>
   </scm>
   <developers>
     <developer>
