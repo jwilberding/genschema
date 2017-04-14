@@ -152,15 +152,21 @@ class GenSchemaTest extends FunSuite {
     }
 
   }
-  test("enumTypes") {
-    val good1 = Baz("e").asJson
-    val good2 = Bar("k").asJson
-    val bad = TypeOne(1).asJson
+  test("mapTypes") {
+    val good1 = Map("foo" -> TypeOne(20).asJson).asJson
+    val good2 = Map("bar" -> TypeOne(40).asJson).asJson
+    val bad1 = TypeOne(1).asJson
+    val bad2 = Map("bar" -> TypeTwo(40, 10).asJson).asJson
 
-    TestSupport.validateSchema(good1, createSchema[Foo]())
-    TestSupport.validateSchema(good2, createSchema[Foo]())
+    TestSupport.validateSchema(good1, createSchema[Map[String, TypeOne]]())
+    TestSupport.validateSchema(good2, createSchema[Map[String, TypeOne]]())
+
     intercept[RuntimeException] {
-      TestSupport.validateSchema(bad, createSchema[Foo]())
+      TestSupport.validateSchema(bad1, createSchema[Map[String, TypeOne]]())
+    }
+
+    intercept[RuntimeException] {
+      TestSupport.validateSchema(bad2, createSchema[Map[String, TypeOne]]())
     }
 
   }

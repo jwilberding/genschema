@@ -75,6 +75,15 @@ object EncoderImplicits {
         case Encoder.Required(json) => Encoder.Optional(json)
         case element: Encoder.Optional => element
     }
+  implicit def mapEncoder[T](
+      implicit st: Lazy[Encoder[T]]): Encoder[Map[String, T]] =
+    (objOpt: Option[JsonObject]) => {
+      val valueSchema = st.value.toJsonSchema(objOpt).json.asJson
+      Encoder.Required(
+        JsonObject.from(List("type" -> "object".asJson,
+                             "additionalProperties" -> valueSchema)))
+    }
+
 }
 
 object Encoder {
