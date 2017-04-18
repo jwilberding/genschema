@@ -1,10 +1,11 @@
 name := "genschema"
 
-organization := "metadrift"
+organization := "net.metadrift"
+sonatypeProfileName := "net.metadrift"
 
 scalaVersion := "2.12.1"
 
-version := "0.3.0"
+version := "0.3.2"
 
 scalacOptions := Seq("-unchecked",
                      "-deprecation",
@@ -54,6 +55,8 @@ publishTo := {
   else
     Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
+
+useGpg := true
 
 pomIncludeRepository := { _ =>
   false
