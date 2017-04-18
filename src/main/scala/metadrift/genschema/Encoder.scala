@@ -1,5 +1,6 @@
 package metadrift.genschema
 
+import java.time.ZonedDateTime
 import java.util.{Date, UUID}
 
 import reflect.runtime.universe.TypeTag
@@ -20,6 +21,12 @@ object EncoderImplicits {
     JsonObject.from(List("type" -> "number".asJson))
 
   implicit def dateEncoder: Encoder[Date] =
+    (objOpt: Option[JsonObject]) =>
+      Encoder.Required(
+        JsonObject.from(
+          List("type" -> "string".asJson, "format" -> "date".asJson)))
+
+  implicit def zonedDateTimeEncoder: Encoder[ZonedDateTime] =
     (objOpt: Option[JsonObject]) =>
       Encoder.Required(
         JsonObject.from(
